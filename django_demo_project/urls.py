@@ -20,4 +20,5 @@ from bbs import views as bbs_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', bbs_view.index, name='index'),
+    path('password_reset/', bbs_view.password_reset, name='password_reset'),
 ]
