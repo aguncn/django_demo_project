@@ -21,4 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', bbs_view.index, name='index'),
     path('password_reset/', bbs_view.password_reset, name='password_reset'),
+    path('boards_list/', bbs_view.boards_list, name='boards_list'),
+    path('boards_list_view/', bbs_view.BoardList.as_view(), name='boards_list_view'),
+    path('boards/<pk>/', bbs_view.board_topics, name='board_topics'),
+    path('boards/<pk>/new/', bbs_view.new_topic, name='new_topic'),
+    path('boards/<pk>/topics/<topic_pk>/',
+         bbs_view.topic_posts, name='topic_posts'),
 ]

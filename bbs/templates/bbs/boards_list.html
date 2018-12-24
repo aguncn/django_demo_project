@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boards_list</title>
+</head>
+<body>
+<ul>
+    {% for board in boards %}
+    <li><a href="{% url 'board_topics' board.pk %}">
+        {{ board.id }}. {{ board.name }}</a><br />
+        {{ board.description }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

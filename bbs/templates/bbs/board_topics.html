@@ -1,0 +1,32 @@
+<div class="table table-striped mb-4">
+    <a href="{% url 'new_topic' board.pk %}" >发新贴</a>
+</div>
+<p />
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Topic</th>
+        <th>Starter</th>
+        <th>Replies</th>
+        <th>Last Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for topic in topics %}
+        <tr>
+          <td>
+            <p class="mb-0">
+              <a href="{% url 'topic_posts' board.pk topic.pk %}">{{ topic.subject }}</a>
+            </p>
+          </td>
+          <td class="align-middle">{{ topic.starter.username }}</td>
+          <td class="align-middle">{{ topic.replies }}</td>
+          <td class="align-middle">{{ topic.last_updated }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+<p />
+<div class="table table-striped mb-4">
+    <a href="{% url 'boards_list' %}">BBS列表</a>
+</div>

@@ -1,0 +1,45 @@
+  <li><a href="{% url 'boards_list' %}">Boards</a></li>
+  <li><a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a></li>
+  <li>New topic</li>
+
+  <form method="post">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div>
+        {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+      <div>
+        {{ form.subject.label_tag }}
+        {{ form.subject }}
+        {% for error in form.subject.errors %}
+          <div>
+            {{ error }}
+          </div>
+        {% endfor %}
+        {% if form.subject.help_text %}
+          <small>
+            {{ form.subject.help_text|safe }}
+          </small>
+        {% endif %}
+      </div>
+
+      <div>
+        {{ form.message.label_tag }}
+        {{ form.message }}
+        {% for error in form.message.errors %}
+          <div>
+            {{ error }}
+          </div>
+        {% endfor %}
+        {% if form.message.help_text %}
+          <small>
+            {{ form.message.help_text|safe }}
+          </small>
+        {% endif %}
+      </div>
+    <button type="submit">发贴</button>
+  </form>
