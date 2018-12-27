@@ -9,10 +9,14 @@
   <div class="col-10">
     <div class="row mb-3">
       <div class="col-6">
-        <strong class="text-muted">{{ post.created_by.username }}</strong>
+        <strong class="text-muted">
+          {{ post.created_by.username }}
+        </strong>
       </div>
       <div class="col-6 text-right">
-        <small class="text-muted">{{ post.created_at }}</small>
+        <small class="text-muted">
+          {{ post.created_at }}
+        </small>
       </div>
     </div>
     {{ post.message }}

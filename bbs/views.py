@@ -30,8 +30,9 @@ class BoardList(ListView):
 def board_topics(request, pk):
     board = Board.objects.get(id=pk)
     topics = board.topics.all()
-
-    return render(request, 'bbs/board_topics.html', {'board': board, 'topics': topics})
+    return render(request,
+                  'bbs/board_topics.html',
+                  {'board': board, 'topics': topics})
 
 
 def new_topic(request, pk):
@@ -49,10 +50,13 @@ def new_topic(request, pk):
                 topic=topic,
                 created_by=user
             )
-            return redirect('topic_posts', pk=pk, topic_pk=topic.pk)
+            return redirect('topic_posts',
+                            pk=pk,
+                            topic_pk=topic.pk)
     else:
         form = NewTopicForm()
-    return render(request, 'bbs/new_topic.html', {'board': board, 'form': form})
+    return render(request, 'bbs/new_topic.html',
+                  {'board': board, 'form': form})
 
 
 def topic_posts(request, pk, topic_pk):
